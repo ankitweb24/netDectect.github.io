@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .header_set {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      span {
+        /* background-color: red; */
+        width: 40%;
+        height: 10%;
+        border-radius: 40px;
+        position: relative;
+        top: 10%;
+        font-size: 1.3rem;
+        color: #fff;
+        text-transform: capitalize;
+        font-family: Arial, Helvetica, sans-serif;
+        box-shadow: inset 0 0 10px rgb(0,0,0,.4);
+      }
+      span img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10%;
+        /* background-color: blue; */
+        padding: 5px;
+        width: 45px;
+      }
+      span h3 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20%;
+        /* background-color: blue; */
+        padding: 5px;
+        margin-left: 20px;
+      }
+      .off {
+        /* display: none; */
+        background:linear-gradient(to right,rgb(255, 123, 0),rgb(255, 0, 242));
+        transition-duration: 200ms;
+      }
+      .on {
+        display: none;
+        background:linear-gradient(to right,rgb(94, 255, 0),rgb(0, 140, 255));
+        transition-duration: 200ms;
+      }
+      .sad{
+        position: absolute;
+        width: 200px;
+        display: none;
+        top: 20%;
+      }
+      .smile{
+        top: 20%;
+        position: absolute;
+        width: 300px;
+      }
+      @media(max-width:768px){
+        span{
+          width: 90%;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header_set">
+      <img src="./392103390_SAD_EMOJI_400px.gif" class="sad" alt="">
+      <span class="off">
+        <img src="offf.png" alt="" />
+        <h3>your are not connected</h3>
+      </span>
+      <img src="./smlgif.gif" class="smile" alt="">
+      <span class="on">
+        <img src="onn.png" alt="" />
+        <h3>your are connected</h3>
+      </span>
+    </div>
+
+    <script>
+      let onData = document.querySelector(".on");
+      let offData = document.querySelector(".off");
+      let sad = document.querySelector(".sad");
+      let smile = document.querySelector(".smile");
+         setInterval(window.onload = function(){
+          if (navigator.onLine) {
+            offData.style.display = "none";
+            onData.style.display = "block";
+            sad.style.display = "none";
+            smile.style.display= "block";
+          } else {
+            offData.style.display = "block";
+            onData.style.display = "none";
+            sad.style.display = "block";
+            smile.style.display= "none";
+          }
+         },100)
+    </script>
+  </body>
+</html>
